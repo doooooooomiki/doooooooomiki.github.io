@@ -1,6 +1,12 @@
 $c-planet-1: hsl(175, 100.0%, 42.2%)
 $c-planet-2: hsl(26, 100.0%, 60.6%)
-$c-planet-3: hsl(46, 100.0%, 65.5%)
+$c-ring: hsl(46, 100.0%, 65.5%)
+
+$width-planet-1: 140px
+$height-planet-1: 140px
+
+@function adjust-margin-to-center-element($width-or-height)
+  @return -1/2 * $width-or-height
 
 .entry
   text-align: center
@@ -16,43 +22,50 @@ $c-planet-3: hsl(46, 100.0%, 65.5%)
 .planet
   div
     @extend %border-radius-50
-    width: 140px
-    height: 140px
+    @extend %preserve-3d
+    width: 160px
+    height: 160px
     position: absolute
+    border: 24px solid $c-ring
+    transform: rotateX(64deg) rotateY(-16deg)
+  
+  div::before
+    @extend %pseudo-element
+    @extend %preserve-3d
+    @extend %reverse-rotation
+    @extend %border-radius-50
+    width: $width-planet-1
+    height: $height-planet-1
+    top: 50%
+    left: 50%
+    margin-left: adjust-margin-to-center-element($width-planet-1)
+    margin-top: adjust-margin-to-center-element($height-planet-1)
     background-color: $c-planet-1
     box-shadow: inset -16px -8px darken($c-planet-1, 10%)
   
-  div::before
-    --animation-duration: 4s
+  div::after
     @extend %pseudo-element
+    @extend %preserve-3d
+    @extend %reverse-rotation
     @extend %border-radius-50
-    @extend %animation
     width: 40px
     height: 40px
-    top: -13px
+    top: -104px
     left: 96px
     background-color: $c-planet-2
     box-shadow: inset -8px -6px darken($c-planet-2, 10%)
-  
-  div::after
-    --animation-duration: 8s
-    @extend %pseudo-element
-    @extend %border-radius-50
-    @extend %animation
-    width: 32px
-    height: 32px
-    top: 123px
-    left: -17px
-    background-color: $c-planet-3
-    box-shadow: inset -10px -6px darken($c-planet-3, 10%)
+    // animation: move 4s infinite alternate ease
     
 %pseudo-element
   display: block
   content: ""
   position: absolute
 
-%animation
-  animation: move var(--animation-duration) infinite alternate ease
+%preserve-3d
+  transform-style: preserve-3d
+
+%reverse-rotation
+  transform: rotateX(-64deg) rotateY(16deg)
   
 %border-radius-50
   border-radius: 50%

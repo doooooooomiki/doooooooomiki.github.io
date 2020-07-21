@@ -1,0 +1,62 @@
+$c-planet-1: hsl(175, 100.0%, 42.2%)
+$c-planet-2: hsl(26, 100.0%, 60.6%)
+$c-planet-3: hsl(46, 100.0%, 65.5%)
+
+.entry
+  text-align: center
+  min-height: 400px
+  position: relative
+  background: navy
+  display: flex
+  justify-content: center
+  align-items: center
+
+.planet
+  div
+    @extend %border-radius-50
+    width: 140px
+    height: 140px
+    position: absolute
+    background-color: $c-planet-1
+    box-shadow: inset -16px -8px darken($c-planet-1, 10%)
+  
+  div::before
+    --animation-duration: 4s
+    @extend %pseudo-element
+    @extend %border-radius-50
+    @extend %animation
+    width: 40px
+    height: 40px
+    top: -13px
+    left: 96px
+    background-color: $c-planet-2
+    box-shadow: inset -8px -6px darken($c-planet-2, 10%)
+  
+  div::after
+    --animation-duration: 8s
+    @extend %pseudo-element
+    @extend %border-radius-50
+    @extend %animation
+    width: 32px
+    height: 32px
+    top: 123px
+    left: -17px
+    background-color: $c-planet-3
+    box-shadow: inset -10px -6px darken($c-planet-3, 10%)
+    
+%pseudo-element
+  display: block
+  content: ""
+  position: absolute
+
+%animation
+  animation: move var(--animation-duration) infinite alternate ease
+  
+%border-radius-50
+  border-radius: 50%
+
+@keyframes move
+  from
+    transform: translate3d(0, -4px, 0)
+  to
+    transform: translate3d(0, 4px, 0)

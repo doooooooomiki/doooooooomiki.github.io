@@ -9,7 +9,7 @@
 .ring-animation
   background-image: radial-gradient(circle at center, lightskyblue, dodgerblue)
 
-.ring-animation div
+  div
     position: relative
     width: 160px
     height: 160px
@@ -20,7 +20,7 @@
     transform: rotateX(45deg)
     perspective: none
 
-.ring-animation div::before, .ring-animation div::after
+  div::before, div::after
     display: block
     content: ""
     position: absolute
@@ -32,13 +32,13 @@
     border-bottom-width: 24px
     box-shadow: 0 12px powderblue, inset 0 12px powderblue
 
-.ring-animation div::before
-  transform: translateZ(-160px)
-  animation: up-and-down-pseudo-elem-before 2s ease-in-out infinite
+  div::before
+    transform: translateZ(-160px)
+    animation: up-and-down-pseudo-elem-before 2s ease-in-out infinite
 
-.ring-animation div::after
-  transform: translateZ(160px)
-  animation: up-and-down-pseudo-elem-after 2s ease-in-out infinite
+  div::after
+    transform: translateZ(160px)
+    animation: up-and-down-pseudo-elem-after 2s ease-in-out infinite
   
 @keyframes up-and-down-pseudo-elem-before
   0%

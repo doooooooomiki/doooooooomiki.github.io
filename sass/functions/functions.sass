@@ -1,0 +1,34 @@
+@function box-shadow-fake-3d($direction-list, $offset, $color)
+  $direction-string: nth($direction-list, 1) + ' ' + nth($direction-list, 2)
+  
+  @if $direction-string != 'to right'
+    @if $direction-string != 'to left'
+      @error "Parameter $direction-string is '#{$direction-string}'. Must be either 'to left' or 'to right'"
+    
+  $direction: 0
+  
+  @if $direction-string == 'to right'
+    $direction: 1
+    
+  @if $direction-string == 'to left'
+    $direction: -1
+   
+  $box-shadow-value: ''
+  
+  @for $i from 1 through $offset
+    @if $i > 1
+      $box-shadow-value: $box-shadow-value + ' '
+      
+    $box-shadow-value: $box-shadow-value + '#{$i * $direction}px #{$i}px ' + $color
+
+    @if $i < $offset
+      $box-shadow-value: $box-shadow-value  + ','
+  
+  @return unquote($box-shadow-value)
+  
+
+div
+  width: 100px
+  height: 100px
+  background-color: lightpink
+  box-shadow: box-shadow-fake-3d(to left, 100, lightgreen)

@@ -11,44 +11,14 @@ body {
   align-items: center;
 }
 
-.planet {
-  background: navy;
-}
-
 .planet div {
-  width: 160px;
-  height: 160px;
-  position: absolute;
-  border: 24px solid #ffd64f;
-  transform: rotateX(72deg) rotateY(-16deg);
-}
-.planet div::before {
-  width: 140px;
-  height: 140px;
-  top: 50%;
-  left: 50%;
-  margin-left: -70px;
-  margin-top: -70px;
-  background-color: #00d7c5;
-  box-shadow: inset -16px -8px #00a497;
-}
-.planet div::after {
-  width: 40px;
-  height: 40px;
-  top: -104px;
-  left: 96px;
-  background-color: #ff8d36;
-  box-shadow: inset -8px -6px #ff7003;
+  transform-style: preserve-3d;
 }
 
 .planet div::before, .planet div::after {
   display: block;
   content: "";
   position: absolute;
-}
-
-.planet div, .planet div::before, .planet div::after {
-  transform-style: preserve-3d;
 }
 
 .planet div::before, .planet div::after {
@@ -59,6 +29,36 @@ body {
   border-radius: 50%;
 }
 
+.planet {
+  background-image: radial-gradient(circle at center, cornflowerblue, darkslateblue);
+}
+
+.planet div {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  border: 24px solid gold;
+  transform: rotateX(72deg) rotateY(-16deg);
+}
+.planet div::before {
+  width: 140px;
+  height: 140px;
+  top: 50%;
+  left: 50%;
+  margin-left: -70px;
+  margin-top: -70px;
+  background-color: mediumturquoise;
+  box-shadow: inset -16px -8px lightseagreen;
+}
+.planet div::after {
+  width: 40px;
+  height: 40px;
+  top: -104px;
+  left: 96px;
+  background-color: tomato;
+  box-shadow: inset -8px -6px orangered;
+}
+
 @keyframes move {
   from {
     transform: translate3d(0, -4px, 0);
@@ -67,6 +67,7 @@ body {
     transform: translate3d(0, 4px, 0);
   }
 }
+
 .ring-animation {
   background-image: radial-gradient(circle at center, lightskyblue, dodgerblue);
 }
@@ -86,8 +87,6 @@ body {
   content: "";
   position: absolute;
   box-sizing: border-box;
-  width: 35%;
-  height: 35%;
   border-radius: 50%;
   border: 16px solid mintcream;
   border-bottom-width: 24px;
@@ -95,18 +94,22 @@ body {
 }
 .ring-animation div::before {
   transform: translateZ(-160px);
-  animation: up-and-down-pseudo-elem-before 2s ease-in-out infinite;
+  width: 50%;
+  height: 50%;
+  animation: up-and-down-pseudo-elem-before 2.5s ease-in-out infinite;
 }
 .ring-animation div::after {
   transform: translateZ(160px);
-  animation: up-and-down-pseudo-elem-after 2s ease-in-out infinite;
+  width: 100%;
+  height: 100%;
+  animation: up-and-down-pseudo-elem-after 2.5s ease-in-out infinite;
 }
 
 @keyframes up-and-down-pseudo-elem-before {
   0% {
     transform: translateZ(-160px);
-    width: 35%;
-    height: 35%;
+    width: 50%;
+    height: 50%;
   }
   25% {
     transform: translateZ(-160px);
@@ -120,13 +123,13 @@ body {
   }
   75% {
     transform: translateZ(160px);
-    width: 35%;
-    height: 35%;
+    width: 50%;
+    height: 50%;
   }
   100% {
     transform: translateZ(-160px);
-    width: 35%;
-    height: 35%;
+    width: 50%;
+    height: 50%;
   }
 }
 @keyframes up-and-down-pseudo-elem-after {
@@ -137,13 +140,13 @@ body {
   }
   25% {
     transform: translateZ(160px);
-    width: 35%;
-    height: 35%;
+    width: 50%;
+    height: 50%;
   }
   50% {
     transform: translateZ(-160px);
-    width: 35%;
-    height: 35%;
+    width: 50%;
+    height: 50%;
   }
   75% {
     transform: translateZ(-160px);

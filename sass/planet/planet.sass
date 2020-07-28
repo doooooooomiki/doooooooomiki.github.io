@@ -1,6 +1,14 @@
 @function adjust-margin-to-center-element($width-or-height)
   @return -1/2 * $width-or-height
 
+.entry
+  text-align: center
+  min-height: 400px
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+
 %pseudo-element
   display: block
   content: ""
@@ -14,14 +22,6 @@
   
 %border-radius-50
   border-radius: 50%
-
-.entry
-  text-align: center
-  min-height: 400px
-  position: relative
-  display: flex
-  justify-content: center
-  align-items: center
 
 .planet 
   background-image: radial-gradient(circle at center, cornflowerblue, darkslateblue)

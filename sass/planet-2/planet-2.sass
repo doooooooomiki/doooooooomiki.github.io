@@ -1,0 +1,41 @@
+.entry
+  text-align: center
+  min-height: 400px
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+
+.planet-2
+  background-image: radial-gradient(circle at center, lightsalmon , tomato)
+  
+  div
+    position: relative
+    width: 120px
+    height: 120px
+    border-radius: 50%
+    background-color: seagreen
+    transform-style: preserve-3d
+    
+  div::before
+    box-sizing: border-box
+    content: ""
+    display: block
+    position: absolute
+    margin-left: (140 - 160) * 1px
+    margin-top: (140 - 160) * 1px
+    width: 160px
+    height: 160px
+    border-radius: 50%
+    border: 12px solid lightseagreen
+    border-top-width: 16px
+    border-bottom-width: 16px
+    transform: rotateX(60deg) rotateY(-10deg) rotateZ(0deg)
+    animation: rotation 5s linear infinite
+    
+@keyframes rotation
+  from
+    transform: rotateX(60deg) rotateY(-10deg) rotateZ(0deg)
+  to
+    transform: rotateX(60deg) rotateY(-10deg) rotateZ(360deg)
+    

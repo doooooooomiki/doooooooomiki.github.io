@@ -1,6 +1,20 @@
 @function adjust-margin-to-center-element($width-or-height)
   @return -1/2 * $width-or-height
 
+%pseudo-element
+  display: block
+  content: ""
+  position: absolute
+
+%preserve-3d
+  transform-style: preserve-3d
+
+%reverse-rotation
+  transform: rotateX(-72deg) rotateY(16deg)
+  
+%border-radius-50
+  border-radius: 50%
+
 .entry
   text-align: center
   min-height: 400px
@@ -24,21 +38,19 @@
   
   div::before
     @extend %pseudo-element
-    @extend %preserve-3d
     @extend %reverse-rotation
     @extend %border-radius-50
     width: 140px
     height: 140px
     top: 50%
     left: 50%
-    margin-left: adjust-margin-to-center-element($width-planet-1)
-    margin-top: adjust-margin-to-center-element($height-planet-1)
+    margin-left: adjust-margin-to-center-element(140px)
+    margin-top: adjust-margin-to-center-element(140px)
     background-color: mediumturquoise
     box-shadow: inset -16px -8px lightseagreen
   
   div::after
     @extend %pseudo-element
-    @extend %preserve-3d
     @extend %reverse-rotation
     @extend %border-radius-50
     width: 40px
@@ -47,22 +59,7 @@
     left: 96px
     background-color: tomato
     box-shadow: inset -8px -6px orangered
-    // animation: move 4s infinite alternate ease
     
-%pseudo-element
-  display: block
-  content: ""
-  position: absolute
-
-%preserve-3d
-  transform-style: preserve-3d
-
-%reverse-rotation
-  transform: rotateX(-72deg) rotateY(16deg)
-  
-%border-radius-50
-  border-radius: 50%
-
 @keyframes move
   from
     transform: translate3d(0, -4px, 0)

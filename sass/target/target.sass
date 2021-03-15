@@ -1,0 +1,40 @@
+.entry
+  text-align: center
+  min-height: 400px
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  
+.target
+  background-image: radial-gradient(circle at center, snow, papayawhip)
+
+.target
+  div 
+    border-radius: 50%
+    width: 128px
+    height: 128px
+    background-repeat: no-repeat
+    background-image: radial-gradient(circle at 54% 50%, transparent, transparent 62px, indianred 56px), repeating-radial-gradient(circle, white, white 16px, lightcoral 17px, lightcoral 32px, white 33px, white 48px, lightcoral 49px, lightcoral 65px)
+    
+    
+  div::before
+    display: block
+    content: ""
+    position: absolute 
+    
+    width: 8px
+    height: 72px
+    border-radius: 10px 10px 0 0
+    background-repeat: no-repeat
+    background-image: linear-gradient(to left, cornflowerblue , cornflowerblue 4px, royalblue 4px, royalblue)
+    
+  div::after
+    display: block
+    content: ""
+    position: absolute
+    
+    width: 12px
+    height: 24px
+    background-color: black
+    border-radius: 10px 10px 0 0

@@ -1,0 +1,51 @@
+$pixel-size: 10px
+$width-burger: $pixel-size
+$height-burger: $pixel-size
+$width-canvas: 290px
+$height-canvas: 260px
+$patty-color-base: sandybrown  
+$patty-color-light: peachpuff
+$patty-color-dark: peru 
+$sesame-color: papayawhip  
+
+@function shadow-line-from-left-to-right($x-starting, $x-ending, $y-coordinate, $color)
+  $shadow-line: ""
+  
+  @for $i from 0 through $x-ending - $x-starting
+    $x-value: ($x-starting + $i) * $pixel-size 
+    $y-value: $y-coordinate * $pixel-size
+    $shadow-line: $shadow-line + "#{$x-value} #{$y-value} #{$color}"
+    @if $i < $x-ending - $x-starting
+      $shadow-line: $shadow-line + ", "
+
+  @return unquote($shadow-line)
+  
+.entry
+  text-align: center
+  min-height: 400px
+  position: relative
+  display: flex
+  justify-content: center
+  align-items: center
+  
+.burger
+  background-image: radial-gradient(circle at center, white, thistle)
+  
+.burger
+  div
+    width: $width-canvas
+    height: $height-canvas
+    position: relative
+  
+  div::before
+    display: block
+    content: ""
+    position: absolute
+    width: $width-burger
+    height: $height-burger
+    background-color: transparent
+    
+    box-shadow: shadow-line-from-left-to-right(7, 22, 0, $patty-color-dark), shadow-line-from-left-to-right(5, 6, 1, $patty-color-dark), shadow-line-from-left-to-right(7, 7, 1, $patty-color-light), shadow-line-from-left-to-right(8, 8, 1, $patty-color-base), shadow-line-from-left-to-right(9, 9, 1, $sesame-color), shadow-line-from-left-to-right(10, 11, 1, $patty-color-base), shadow-line-from-left-to-right(12, 12, 1, $sesame-color), shadow-line-from-left-to-right(13, 14, 1, $patty-color-base), shadow-line-from-left-to-right(15, 15, 1, $sesame-color), shadow-line-from-left-to-right(16, 17, 1, $patty-color-base)
+    
+    
+   

@@ -11,15 +11,6 @@ body {
   align-items: center;
 }
 
-.entry {
-  text-align: center;
-  min-height: 400px;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .burger {
   background-image: radial-gradient(circle at center, white, lightsalmon);
 }

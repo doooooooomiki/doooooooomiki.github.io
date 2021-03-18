@@ -47,7 +47,7 @@ $patty-color-dark: saddlebrown
     --pixel-size: #{$pixel-size-default}
     @media screen and (max-width: 289px)
       --pixel-size: #{$pixel-size-smaller}
-    
+
     --canvas-width: calc(29 * var(--pixel-size))
     --canvas-height: calc(26 * var(--pixel-size))
     width: var(--canvas-width)
@@ -55,9 +55,7 @@ $patty-color-dark: saddlebrown
     position: relative
   
   div::before
-    --pixel-size: #{$pixel-size-default}
-    @media screen and (max-width: 289px)
-      --pixel-size: #{$pixel-size-smaller}
+    
     display: block
     content: ""
     position: absolute

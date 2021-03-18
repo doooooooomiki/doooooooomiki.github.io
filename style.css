@@ -32,11 +32,13 @@ body {
   height: var(--canvas-height);
   position: relative;
 }
+
 @media screen and (max-width: 289px) {
   .burger div {
     --pixel-size: 8px;
   }
 }
+
 .burger div::before {
   display: block;
   content: "";
